@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <?php include "eticaret/templates/nav.php" ?>
+    <?php @include('templates.nav') ?>
 
     <div class="container text-center" style="margin-top: 30px">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -59,48 +59,9 @@
         <div class="text-center">
             <h1 class="display-4">Son Eklenenler</h1>
         </div>
-        <?php /*
-        $con = DSConnection::open_or_get();
-        $query = $con->query()
-            ->kind("Books")
-            ->order("added", Query::ORDER_DESCENDING)
-            ->limit(20);
-        $result = $con->runQuery($query);*/
-        ?>
-        <div class="row text-center justify-content-center">
-            <?php /* @var Entity $book  foreach ($result as $book) { ?>
-                <a class="no-links-visible" href="book.php?book=<?php echo $book->key()->pathEndIdentifier() ?>">
-                    <div class="col-sm card m-1" style="width: 17rem;">
-                        <div class="p-3"><img class="card-img-top border border-dark" src="<?php echo $book["coverpath"] ?>" alt="<?php echo $book["name"] ?>" style="height: 18rem" /></div>
-                        <div class="card-body-index">
-                            <?php
-                            $totalrating = $book["totalrating"];
-                            $totalrates = $book["totalrates"];
-
-                            if ($totalrates == 0) {
-                                $totalrating = 0;
-                                $totalrates = 1;
-                            }
-
-                            $calcrate = $totalrating / $totalrates;
-                            ?>
-                            <?php for ($i = 0; $i < floor($calcrate); $i++) { ?>
-                                <span class="fa fa-star checked"></span>
-                            <?php } ?>
-                            <?php for ($i = 0; $i < 5 - floor($calcrate); $i++) { ?>
-                                <span class="fa fa-star"></span>
-                            <?php } ?>
-                            <p class="card-text"><?php //echo $book["name"] ?></p>
-                            <p class="card-text"><?php //echo $book["author"] ?> </p>
-                            <p class="card-text"><?php //echo $book["publisher"] ?></p>
-                            <p class="card-text"><?php //echo $book["cost"] ?> ₺</p>
-                        </div>
-                    </div>
-                </a>
-            <?php } */?>
-        </div>
+       
     </div>
-    <?php include "eticaret/templates/footer.php" ?>
+    <?php @include('templates.footer') ?>
 
     <!-- Libraries -->
     <script src="js/jquery-3.4.1.js"></script>
