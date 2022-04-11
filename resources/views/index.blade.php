@@ -17,15 +17,10 @@
             color: orange;
         }
     </style>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/all.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/wob.css">
-    <script src="js/wobmain.js?"></script>
 </head>
 
 <body>
-    <?php @include('templates.nav') ?>
+      @include('templates.navbar') 
 
     <div class="container text-center" style="margin-top: 30px">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -36,13 +31,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="slider/nresim1.jpg" alt="First slide" height="400px" style="background-image: url('slider/nresim1.jpg')">
+                    <img class="d-block w-100" src="/storage/slider/nresim1.jpg" alt="First slide" height="400px" style="background-image: url('slider/nresim1.jpg')">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="slider/nresim2.jpg" alt="Second slide" height="400px" style="background-image: url('slider/nresim2.jpg')">
+                    <img class="d-block w-100" src="/storage/slider/nresim2.jpg" alt="Second slide" height="400px" style="background-image: url('slider/nresim2.jpg')">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="slider/nresim3.jpg" alt="Third slide" height="400px">
+                    <img class="d-block w-100" src="/storage/slider/nresim3.jpg" alt="Third slide" height="400px">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -61,12 +56,8 @@
         </div>
        
     </div>
-    <?php @include('templates.footer') ?>
+    @include('templates.footer')
 
-    <!-- Libraries -->
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>
