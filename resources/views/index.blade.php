@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <?php include "templates/nav.php" ?>
+    <?php include "eticaret/templates/nav.php" ?>
 
     <div class="container text-center" style="margin-top: 30px">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -100,7 +100,7 @@
             <?php } */?>
         </div>
     </div>
-    <?php include "templates/footer.php" ?>
+    <?php include "eticaret/templates/footer.php" ?>
 
     <!-- Libraries -->
     <script src="js/jquery-3.4.1.js"></script>
