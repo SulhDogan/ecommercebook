@@ -13,7 +13,7 @@ class UserController extends Controller
             'Password'=>'required|min:6|max:6',
             'Name'=>'required',
             'Surname'=>'required',
-            'Phone'=>'required|unique:Users|min:11|max:11',
+            'Phone'=>'required|unique:users|min:11|max:11',
             'EMailre'=>'required',
             'Passwordre'=>'reqired'
         ]);
