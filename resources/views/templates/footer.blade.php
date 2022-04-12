@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer bg-dark text-white">
         <div class="container mt-sm-3 text-center">
             <div class="row text-center my-sm-2">
                 <div class="col py-1 mt-sm-3"><a class="text-reset text-decoration-none"  href="contact.php">Hakkımızda</a></div>
