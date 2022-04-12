@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function register(Request $request){
         $request->validate([
-            'EMail'=>'required|unique:Users',
+            'EMail'=>'required|unique:users',
             'Password'=>'required|min:6|max:6',
             'Name'=>'required',
             'Surname'=>'required',
