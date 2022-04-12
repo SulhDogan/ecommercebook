@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Users;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -47,10 +47,13 @@ class UserController extends Controller
             'Password' => 'required|min:6|max:6'
         ]);
         $user = Users::where('EMail','=',$request->EMail)->first();
+        
         if($user)
         {
+            Log::info('sorguya girdi',$user->EMail);
             if($user->Password==$request->Password)
             {
+                Log::info('eşleşti',$user->UserID);
                 $request->session()->put('UserLoginID',$user->UserID);
                 return redirect('/index');
             }
