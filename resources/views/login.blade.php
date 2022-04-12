@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col border text-center p-5 m-1">
                 <h1 class="display-5">Üye Girişi</h1>
-                <form>
+                <form action="{{url('/userlogin')}}"method="post">
                   @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-Posta Adresi</label>
@@ -25,7 +25,7 @@
                         <label for="exampleInputPassword1">Şifre</label>
                         <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Şifre">
                     </div>
-                    <button type="button" class="btn btn-secondary px-5 btn-block" onclick="ajaxlogin(email.value, password.value)">Giriş Yap</button>
+                    <input type="submit" class="btn btn-secondary px-5 btn-block" >
                 </form>
             </div>
             <div class="col border text-center p-5 m-1">

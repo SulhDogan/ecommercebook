@@ -40,4 +40,28 @@ class UserController extends Controller
         return back()->with('Başarısız','Email ve şifre tekrarını kontrol edin');
 
     }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'EMail' => 'required',
+            'Password' => 'required|min:6|max:6'
+        ]);
+        $user = Users::where('EMail','=',$request->EMail)->first();
+        if($user)
+        {
+            if($user->Password==$request->Password)
+            {
+                $request->session()->put('UserLoginID',$user->UserID);
+                return redirect('/index');
+            }
+            else
+            {
+                return back()->with('Başarısız','Şifrenizi Lütfen Kontrol Ediniz.');
+            }
+        }
+        else
+        {   
+            return back()->with('Başarısız','Bu Kullanıcı İsmine Sahip Bir Kullanıcı Bulunamadı');
+        }
+    }
 }
