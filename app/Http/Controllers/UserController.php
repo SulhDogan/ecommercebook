@@ -47,7 +47,7 @@ class UserController extends Controller
             'Password' => 'required|min:6|max:6'
         ]);
         $user = Users::where('EMail','=',$request->EMail)->first();
-        
+        die("ok")
         if($user)
         {
             Log::info('sorguya girdi',$user->EMail);
