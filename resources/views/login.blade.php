@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col border text-center p-5 m-1">
                 <h1 class="display-5">Üye Girişi</h1>
-                <form action="{{url('/userlogin')}}"method="post">
+                <form action="{{url('/loginuser')}}"method="post">
                   @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-Posta Adresi</label>
