@@ -18,12 +18,12 @@
                   @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-Posta Adresi</label>
-                        <input type="email" class="form-control" id="inputEmail" name="email" aria-describedby="emailHelp" placeholder="E-Posta">
+                        <input type="email" class="form-control" id="inputEmail" name="EMail" aria-describedby="emailHelp" placeholder="E-Posta">
                         <small id="emailHelp" class="form-text text-muted">E-Postanızı kimseyle paylaşmayız.</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Şifre</label>
-                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Şifre">
+                        <input type="password" class="form-control" id="inputPassword" name="Password" placeholder="Şifre">
                     </div>
                     <input type="submit" class="btn btn-secondary px-5 btn-block" >
                 </form>
