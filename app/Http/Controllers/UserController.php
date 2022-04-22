@@ -47,14 +47,16 @@ class UserController extends Controller
             'Password' => 'required|min:6|max:6'
         ]);
         $user = Users::where('EMail','=',$request->EMail)->first();
-        die("ok")
+        
         if($user)
         {
-            Log::info('sorguya girdi',$user->EMail);
+            
             if($user->Password==$request->Password)
             {
-                Log::info('eşleşti',$user->UserID);
+                
                 $request->session()->put('UserLoginID',$user->UserID);
+                $request->session()->put('UserName',$user->Name);
+                $request->session()->put('UserSurname',$user->Surname);
                 return redirect('/index');
             }
             else
@@ -66,5 +68,36 @@ class UserController extends Controller
         {   
             return back()->with('Başarısız','Bu Kullanıcı İsmine Sahip Bir Kullanıcı Bulunamadı');
         }
+    }
+    public function logout(Request $request)
+    {
+        if($request->session()->has('AdminLoginID'))
+        {
+            $request->session()->forget('AdminLoginID');
+        }
+        else
+        {
+
+            $request->session()->forget('UserLoginID');
+            $request->session()->forget('UserName');
+            $request->session()->forget('UserSurname');
+        }
+        return redirect('/index');
+    }
+    public function show($id)
+    {
+        $user=Users::find($id);
+        return view('edituser')->with('user',$user);
+    }
+    public function update(Request $request,$id)
+    {
+        $user=Users::find($id);
+        $input=[
+            'EMail'=>$request->EMail,
+            'Password'=>$request->Password,
+            'Phone'=>$request->Phone
+        ];
+        $user->update($input);
+        return view('index');
     }
 }

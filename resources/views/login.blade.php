@@ -12,6 +12,12 @@
 <div class="container container-fixed" style="margin-top: 50px">
 
         <div class="row">
+        @if(Session::has('Başarılı'))
+          <div class="alert alert-success">{{Session::get('Başarılı')}}</div>
+          @endif
+          @if(Session::has('Başarısız'))
+          <div class="alert alert-danger">{{Session::get('Başarısız')}}</div>
+          @endif
             <div class="col border text-center p-5 m-1">
                 <h1 class="display-5">Üye Girişi</h1>
                 <form action="{{url('/loginuser')}}"method="post">

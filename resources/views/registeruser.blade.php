@@ -12,12 +12,19 @@
 <div class="container container-fixed" style="margin-top: 50px">
 
 <div class="row">
+@if(Session::has('Başarılı'))
+          <div class="alert alert-success">{{Session::get('Başarılı')}}</div>
+          @endif
+          @if(Session::has('Başarısız'))
+          <div class="alert alert-danger">{{Session::get('Başarısız')}}</div>
+          @endif
             <div class="col-4 border  p-4 m-1">
                 <div class="group-row text-center mb-2">
                     <span class="text-center"> Zaten Üyeyim! <a href="{{url('/login')}}" style="text-decoration: underline">Giriş Yap</a></span>
                 </div>
                 <form action="{{url('/registeruser')}}"method="post">
                     @csrf
+               
                     <div class="form-group row">
                         <div class="col-sm">
                             <label for="exampleInputEmail1">Ad*</label>

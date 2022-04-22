@@ -1,10 +1,4 @@
-<?php 
-if (session_status() == PHP_SESSION_NONE)
-session_start();
-?>
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="row col-lg justify-content-md-center">
@@ -25,36 +19,57 @@ session_start();
           </form>
         </div>
         <div class="navbar-nav col-auto">
-        <?php
-                    if (!isset($_SESSION["logged"])) {
-                    ?>
+          <?php
+          if (!session()->has('UserLoginID') && !session()->has('AdminLoginID')) {
+          ?>
 
-                        <a class="nav-item nav-link active mr-sm-2" href="/login">Giriş Yap </a>
+            <a class="nav-item nav-link active mr-sm-2" href="/login">Giriş Yap </a>
 
-                    <?php
-                    } else {
-                    ?>
+          <?php
+          } else {
+          ?>
 
-                        <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php echo ($_SESSION["user_name"] . " " . $_SESSION["user_surname"]) ?>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="history.php">Satın Aldıklarım</a>
-                            <!-- <a class="dropdown-item" href="#">Another action</a> -->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="ajaxlogout()">Çıkış Yap</a>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                    <div class="justify-content-center">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sepet
-                        </button>
-                    </div>
 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php if (session()->has('AdminLoginID')) { ?>
+                  <?php $id = session()->get("AdminLoginID"); ?>
+                  {{ session()->get("AdminName") }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <li><a class="dropdown-item" href="/logoutuser">Çıkış Yap</a></li>
+              </ul>
+            </div>
+          <?php
+                } else { ?>
+            {{ (session()->get("UserName") . " " . session()->get("UserSurname")) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <?php $id = session()->get("UserLoginID"); ?>
+              <li><a class="dropdown-item" href="{{url('/edituser'.'/'.$id)}}">Bilgilerim</a></li>
+              <li><a class="dropdown-item" href="{{url('/gecmis/'.$id)}}">Satın Aldıklarım</a></li>
+              <li><a class="dropdown-item" href="/logoutuser">Çıkış Yap</a></li>
+            </ul>
         </div>
+      <?php } ?>
+
+    
+    <div class="justify-content-center">
+    <a href="{{url('/ushopcard/'.$id)}}">
+      <button class="btn btn-secondary " type="button" >
+    
+        Sepet
+      </button>
+      </a>
+    
+    </div>
+    <?php
+          }
+    ?>
+
       </div>
     </div>
+  </div>
   </div>
 </nav>
