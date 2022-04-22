@@ -35,15 +35,16 @@ if (session_status() == PHP_SESSION_NONE)
             <div class="card-header">
                 <h5 class="card-header text-center">Yönetici Paneli</h5>
             </div>
-            <div class="card-body">
-                <form action="{{url('/panellogin')}}" method="post">
-                    @csrf
-                    @if(Session::has('Başarılı'))
+            @if(Session::has('Başarılı'))
                     <div class="alert alert-success">{{Session::get('Başarılı')}}</div>
                     @endif
                     @if(Session::has('Başarısız'))
                     <div class="alert alert-danger">{{Session::get('Başarısız')}}</div>
                     @endif
+            <div class="card-body">
+                <form action="{{url('/panellogin')}}" method="post">
+                    @csrf
+                    
                     <div class="mb-2">
                         <label for="Username" class="form-label">Kullanıcı adı</label>
                         <input type="text" name="Username"class="form-control"  aria-describedby="emailHelp">
