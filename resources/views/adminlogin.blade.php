@@ -44,7 +44,6 @@ if (session_status() == PHP_SESSION_NONE)
             <div class="card-body">
                 <form action="{{url('/panellogin')}}" method="post">
                     @csrf
-                    
                     <div class="mb-2">
                         <label for="Username" class="form-label">Kullanıcı adı</label>
                         <input type="text" name="Username"class="form-control"  aria-describedby="emailHelp">
