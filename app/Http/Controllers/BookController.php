@@ -87,4 +87,32 @@ class BookController extends Controller
         $books=Book::find($id);
         return view('book.bshow')->with('books',$books);
     }
+    public function ara(Request $request)
+    {
+        $books=Book::where('BookName','like', '%'. $request->Sorgu .'%' )->get();
+        if(empty($books))
+        {
+            
+
+        }
+        else
+        {
+            $authors=Author::where('AuthorName','like', '%'. $request->Sorgu .'%')->get();
+            if(empty($authors))
+            {
+
+                return back()->with('Başarısız','Kitap yada Yazar bulunamadı');
+            }
+            else
+            {
+                foreach($authors as $item)
+                {
+                    $books=Book::where('AuthorID',$item->AuthorID)->get();
+                }
+
+                return view('book.search')->with('books',$books);
+            }
+        }
+        
+    }
 }

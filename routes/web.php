@@ -55,3 +55,5 @@ Route::get('/buy/{id}',[ShopCartController::class,'gonder']);
 ///
 Route::post('order/{id}',[OrderController::class,'olustur'])->name('order_add');
 Route::get('/gecmis/{id}',[OrderController::class,'gecmis']);
+//
+Route::get('/search',[BookController::class,'ara']);

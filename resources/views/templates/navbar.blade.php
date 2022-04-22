@@ -13,8 +13,9 @@
       </div>
       <div class="col-auto collapse navbar-collapse row" id="navbarSupportedContent">
         <div class="col">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Kitap ya da Yazar (örn. Harry Potter)" aria-label="Search">
+          <form class="d-flex" method="get" action="{{url('/search')}}">
+            @csrf
+            <input class="form-control me-2" type="text" name="Sorgu" placeholder="Kitap ya da Yazar (örn. Harry Potter)" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"><span class="material-icons">search</span></button>
           </form>
         </div>

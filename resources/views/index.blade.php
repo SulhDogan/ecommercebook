@@ -29,7 +29,12 @@ if (session_status() == PHP_SESSION_NONE)
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   @include('templates.navbar')
-
+  @if(Session::has('Başarılı'))
+          <div class="alert alert-success">{{Session::get('Başarılı')}}</div>
+          @endif
+          @if(Session::has('Başarısız'))
+          <div class="alert alert-danger">{{Session::get('Başarısız')}}</div>
+          @endif
   <div class="container text-center" style="margin-top: 30px">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -65,7 +70,7 @@ if (session_status() == PHP_SESSION_NONE)
     <div class="row  text-center justify-content-center">
       @foreach($books as $item)
       
-      <a href="{{url('bookinfo/'.$item->BookID)}}" class="col-sm card m-1 text-decoration-none text-dark" href="#">
+      <a href="{{url('bookinfo/'.$item->BookID)}}" class="col-sm card m-1 text-decoration-none text-dark" >
         <div class="col-sm card m-1" style="width: 17rem;">
           <div class="p-3">
             <img src="{{$item->BookPicture}}" class="card-img-top" alt="{{$item->BookName}}" style="height: 18rem">
