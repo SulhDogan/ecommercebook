@@ -43,7 +43,7 @@ if (session_status() == PHP_SESSION_NONE)
                     @endif
             <div class="card-body">
                 <form action="{{url('/panellogin')}}" method="post">
-                    @csrf
+                    
                     <div class="mb-2">
                         <label for="Username" class="form-label">Kullanıcı adı</label>
                         <input type="text" name="Username"class="form-control"  aria-describedby="emailHelp">
@@ -55,7 +55,7 @@ if (session_status() == PHP_SESSION_NONE)
                         <span class="text-danger">@error('Password'){{$message}} @enderror</span>
                     </div>
                     <div class="mb-2">
-                        <button type="submit" class="btn btn-primary">Giriş</button>
+                        <input type="submit" class="btn btn-primary" value="Giriş">
                     </div>
                 </form>
             </div>
