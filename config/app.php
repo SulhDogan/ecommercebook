@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://sleepy-depths-80372.herokuapp.com/'),
 
-    'asset_url' => env('ASSET_URL'),
+    'asset_url' => env('ASSET_URL','https://sleepy-depths-80372.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
