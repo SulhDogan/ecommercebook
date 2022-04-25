@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\OrderBook;
 use App\Models\ShopCart;
 use Illuminate\Http\Request;
@@ -20,6 +21,9 @@ class OrderBookController extends Controller
             $OrderBook->OrderID=$id;
             $OrderBook->Price=$item->books->BookPrice;
             $OrderBook->save();
+            $books=Book::find($item->BookID);
+            $books->BookCount=$books->BookCount-$item->BookCount;
+            $books->save();
 
         }
         $Orders=OrderBook::where('OrderID',$id);

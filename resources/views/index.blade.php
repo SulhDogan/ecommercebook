@@ -70,10 +70,10 @@ if (session_status() == PHP_SESSION_NONE)
     <div class="row  text-center justify-content-center">
       @foreach($books as $item)
       
-      <a href="{{url('bookinfo/'.$item->BookID)}}" class="col-sm card m-1 text-decoration-none text-dark" >
+      
         <div class="col-sm card m-1" style="width: 17rem;">
           <div class="p-3">
-            <img src="{{$item->BookPicture}}" class="card-img-top" alt="{{$item->BookName}}" style="height: 18rem">
+          <a href="{{url('bookinfo/'.$item->BookID)}}" class="col-sm card m-1 text-decoration-none text-dark" ><img src="{{$item->BookPicture}}" class="card-img-top" alt="{{$item->BookName}}" style="height: 18rem"></a>
           </div>
           <div class="card-body">
             <p class="card-text">{{$item->BookName}}</p>
@@ -82,7 +82,7 @@ if (session_status() == PHP_SESSION_NONE)
             <p class="card-text">{{$item->BookPrice}} ₺</p>
           </div>
         </div>
-      </a>
+      
       @endforeach
     </div>
 

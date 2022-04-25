@@ -25,6 +25,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     @include('templates.navbar')
     <div class="container">
+        <?php if(!empty($OrderBook[0]->OrderID)){?>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -60,7 +61,7 @@
                     @endif
                     <tr id="bigcart">
                     <td class="align-middle"> {{ $key->OrderID }}</td>
-                        <td class="align-middle"><img src="{{ asset($key->books->BookPicture) }}"></td>
+                        <td class="align-middle"><a href="{{url('bookinfo/'.$key->BookID)}}" class="col-sm card m-1 text-decoration-none text-dark" ><img src="{{ asset($key->books->BookPicture) }}" class="card-img-top"  style="height: 18rem"></a></td>
                         <td class="align-middle"> {{ $key->books->BookName }}</td>
                         
                         <td class="align-middle"> {{ $key->Count }}</td>
@@ -91,6 +92,11 @@
 
     </div>
     </div>
+    <?php }else{?>
+        <div class="container">
+            <h1>Lütfen Alışveriş Yapınız</h1>
+        </div>
+        <?php }?>
 
 </body>
 </html>
